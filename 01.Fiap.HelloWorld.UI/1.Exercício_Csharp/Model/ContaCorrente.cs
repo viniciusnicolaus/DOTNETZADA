@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace Fiap.Banco.Model
 {
-    class ContaCorrente : Conta
+    //sealed : classe não pode ser herdada
+    sealed class ContaCorrente : Conta
     {
-        public TipoConta TipoConta { get; set; }
+        public TipoConta Tipo { get; set; }
 
-
-        public override decimal Depositar()
+        
+        public override void Depositar(decimal valor)
         {
-            return Saldo += 10;
+            Saldo += valor;
         }
 
-        public override decimal Retirar()
+        public override void Retirar(decimal valor)
         {
-            if(TipoConta.Comum && saque > Saldo)
+            if (Tipo == TipoConta.Comum && valor > Saldo)
             {
-
+                throw new Exception("Saldo insuficiente");
             }
+            Saldo -= valor;
         }
     }
 }

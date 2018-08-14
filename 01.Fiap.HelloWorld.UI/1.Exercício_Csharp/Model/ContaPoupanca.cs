@@ -6,31 +6,41 @@ using System.Threading.Tasks;
 
 namespace Fiap.Banco.Model
 {
-    class ContaPopanca : Conta, IContaInvestimento
+    class ContaPoupanca : Conta, IContaInvestimento
     {
-
+        //propriedade
         public decimal Taxa { get; set; }
-
-        private readonly decimal _rendimento;
 
         public decimal Rendimento
         {
             get { return _rendimento; }
         }
-
-        public override decimal Depositar()
+        //field/campos (atributos)
+        private readonly decimal _rendimento;
+        // Construtor
+        public ContaPoupanca(decimal rend)
         {
-            return Saldo += 10;
-        }
-
-        public override decimal Retirar()
-        {
-            throw new NotImplementedException();
+            _rendimento = rend;
         }
 
         public decimal CalculaRetornoInvestimento()
         {
-            return Saldo * _rendimento;
+            return Saldo * Rendimento;
+        }
+
+        public override void Depositar(decimal valor)
+        {
+            Saldo += valor;
+        }
+
+        public override void Retirar(decimal valor)
+        {
+            if (Saldo < valor + Taxa)
+            {
+                throw new Exception("Saldo insuficiente");
+            }
+            Saldo -= valor + Taxa;
+            
         }
     }
 }
