@@ -20,6 +20,7 @@ namespace _02.Fiap.Web.MVC.Controllers
         {
             // Enviar valores para a página
             ViewBag.churros = show.Banda;
+            //Mantem a informação após um redirect
             TempData["msg"] = "Show cadastrado";
             return View(show);
             //return Content(show.Banda); //retorna um texto

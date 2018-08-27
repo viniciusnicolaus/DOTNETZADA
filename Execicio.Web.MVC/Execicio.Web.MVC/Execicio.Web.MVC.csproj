@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D96FDCA2-ED61-48C6-B2D8-66FED91847F5}</ProjectGuid>
+    <ProjectGuid>{C62874DF-F6FA-403D-8440-277C5497A96C}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02.Fiap.Web.MVC</RootNamespace>
-    <AssemblyName>02.Fiap.Web.MVC</AssemblyName>
+    <RootNamespace>Execicio.Web.MVC</RootNamespace>
+    <AssemblyName>Execicio.Web.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -96,25 +96,21 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Code\Atalho.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Show\Cadastrar.cshtml" />
+    <Content Include="Views\Refeicao\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\FormController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ShowController.cs" />
+    <Compile Include="Controllers\RefeicaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Form.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\Show.cs" />
+    <Compile Include="Models\Refeicao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +121,8 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Form\Formulario.cshtml" />
+    <Content Include="Views\Refeicao\Listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -151,9 +146,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2087</DevelopmentServerPort>
+          <DevelopmentServerPort>14191</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2087/</IISUrl>
+          <IISUrl>http://localhost:14191/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
