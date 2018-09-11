@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5D338C0C-59AD-404C-988F-948271A2D089}</ProjectGuid>
+    <ProjectGuid>{C988337A-8E65-402C-81A9-CBFBDF26BC5E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fiap._04.Web.MVC</RootNamespace>
-    <AssemblyName>Fiap.04.Web.MVC</AssemblyName>
+    <RootNamespace>Fiap05.Web.MVC</RootNamespace>
+    <AssemblyName>Fiap05.Web.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -102,26 +102,30 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="App_Code\Ajudante.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Pessoa\Cadastrar.cshtml" />
-    <Content Include="Views\Pessoa\Listar.cshtml" />
-    <Content Include="Views\Pessoa\Alterar.cshtml" />
+    <Content Include="Views\CartaoReal\Listar.cshtml" />
+    <Content Include="Views\CartaoVirtual\Cadastrar.cshtml" />
+    <Content Include="Views\CartaoVirtual\Listar.cshtml" />
+    <Content Include="Views\Compra\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\CartaoRealController.cs" />
+    <Compile Include="Controllers\CartaoVirtualController.cs" />
+    <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Pais.cs" />
-    <Compile Include="Models\Pessoa.cs" />
-    <Compile Include="Persistencia\ImigracaoContext.cs" />
+    <Compile Include="Models\CartaoReal.cs" />
+    <Compile Include="Models\CartaoVirtual.cs" />
+    <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\StatusCartao.cs" />
+    <Compile Include="Persistencia\FiapBankContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,8 +136,9 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\CartaoReal\Cadastrar.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Compra\Listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -157,9 +162,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2375</DevelopmentServerPort>
+          <DevelopmentServerPort>3850</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2375/</IISUrl>
+          <IISUrl>http://localhost:3850/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

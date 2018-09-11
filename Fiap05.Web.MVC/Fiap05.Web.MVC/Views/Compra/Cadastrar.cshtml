@@ -1,0 +1,27 @@
+﻿@model Fiap05.Web.MVC.Models.Compra
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar de Compra</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">@TempData["msg"]</div>
+
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Data)
+        @Html.TextBoxFor(c => c.Data, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.CartaoVirtual)
+        @Html.DropDownListFor(c => c.CartaoVirtualId,
+                               ViewBag.listaCv as SelectList,
+                               new { @class = "form-control" })
+    </div>
+    <input type="submit" value="Cadastrar" name="Cadastrar">
+}

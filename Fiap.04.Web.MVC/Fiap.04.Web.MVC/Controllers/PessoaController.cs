@@ -11,7 +11,16 @@ namespace Fiap._04.Web.MVC.Controllers
 {
     public class PessoaController : Controller
     {
-        private ImigracaoContext _context = new ImigracaoContext(); 
+        private ImigracaoContext _context = new ImigracaoContext();
+
+        [HttpGet]
+        public ActionResult Pesquisar(string nomeBusca)
+        {
+            //fazer a busca por nome
+            var lista = _context.Pessoas.Where(c => c.Nome.Contains(nomeBusca)).ToList();
+            //retornar a lista para a página
+            return View("Listar",lista);
+        }
         
         [HttpPost]
         public ActionResult Remover(int id)
@@ -19,11 +28,9 @@ namespace Fiap._04.Web.MVC.Controllers
             var pessoa = _context.Pessoas.Find(id);
             _context.Pessoas.Remove(pessoa);
             _context.SaveChanges();
-            TempData["msg"] = "Pessoa removida com sucesso";
+            TempData["msg"] = "Pessoa removida";
             return RedirectToAction("Listar");
-
         }
-
 
         [HttpPost]
         public ActionResult Alterar(Pessoa pessoa)

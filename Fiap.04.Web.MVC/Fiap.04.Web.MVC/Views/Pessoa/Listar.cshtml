@@ -4,12 +4,19 @@
     ViewBag.Title = "Listar";
 }
 
-@if (TempData["msg"] != null)
-{
-    <div class="alert alert-success">@TempData["msg"]</div>
-}
+@Ajudante.Mensagem(TempData["msg"])
+
 <h2>Lista de pessoas</h2>
 
+<!--Using tem como padrão o método post-->
+@using (Html.BeginForm("Pesquisar", "Pessoa", FormMethod.Get, new { @class = "form-inline"}))
+{
+    @Html.TextBox("nomeBusca", null, new { placeholder = "Digite um nome",
+                                            @class = "form-control" })
+    @Ajudante.Botao("Buscar")    
+}
+
+<br />
 <table class="table table-striped">
     <tr>
         <th>Código</th>
@@ -17,7 +24,7 @@
         <th>Data de nascimento</th>
         <th>Dependentes</th>
         <th></th>
-        <th></th>
+        
     </tr>
     @foreach (var item in Model)
     {
@@ -28,11 +35,11 @@
             <td>@item.Dependentes</td>
             <td>
                 @Html.ActionLink("Editar", "Alterar", new { id = item.PessoaId }, new { @class = "btn btn-info btn-xs"})
-            </td>
-            <td>
+           
                 <button onclick="codigoPessoa.value = @item.PessoaId" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                     Excluir
                 </button>
+
             </td>
         </tr>
     }
@@ -50,7 +57,7 @@
                 Deseja realmente excluir essa pessoa?
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("Excluir", "Pessoa"))
+                @using (Html.BeginForm("Remover", "Pessoa"))
                 { 
                     <input type="hidden" name="id" id="codigoPessoa"/>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

@@ -1,0 +1,54 @@
+﻿@model List<Fiap05.Web.MVC.Models.Compra>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+<table class="table">
+    <tr>
+        <th>Código</th>
+        <th>Data Compra</th>
+        <th>Cartao Virtual</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CompraId</td>
+            <td>@item.Data.ToShortDateString()</td>
+            <td>@item.CartaoVirtual.Numero</td>
+            <td>
+                @Html.ActionLink("Editar", "Alterar", new { id = item.CompraId }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+            <td>
+                <button onclick="codigoPessoa.value = @item.CompraId" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Apagar", "Compra"))
+                {
+                    <input type="hidden" name="id" id="codigoPessoa" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Excluir</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
