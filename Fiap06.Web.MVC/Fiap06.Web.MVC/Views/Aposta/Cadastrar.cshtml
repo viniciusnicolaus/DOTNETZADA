@@ -1,0 +1,40 @@
+﻿@model Fiap06.Web.MVC.Models.Aposta
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">@TempData["msg"]</div>
+
+}
+
+<h2>Cadastrar Aposta</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Data)
+        @Html.TextBoxFor(c => c.Data, new { @class = "form-control" })
+    </div>
+
+   <div class="form-group">
+        @Html.LabelFor(c => c.Concurso)
+        @Html.DropDownListFor(c => c.Numero,
+        ViewBag.concursos as SelectList, "Selecione",
+        new { @class = "form-control" })
+    </div>
+
+   <fieldset>
+       <legend>Números</legend>
+       @for (int i = 1; i <= 60; i++)
+       {
+           <input type="checkbox" name="sequencia" value="@i" />
+           <label for="@i">@(i<10?"0":"")@i</label>
+
+       }
+   </fieldset>
+
+    <input type="submit" value="Cadastrar" class="btn btn-success" />
+
+}
