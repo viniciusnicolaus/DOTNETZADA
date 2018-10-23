@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C988337A-8E65-402C-81A9-CBFBDF26BC5E}</ProjectGuid>
+    <ProjectGuid>{D28180EB-9215-44F6-8381-5399218B4A7D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fiap05.Web.MVC</RootNamespace>
-    <AssemblyName>Fiap05.Web.MVC</AssemblyName>
+    <RootNamespace>Fiap.NAC.Correcao</RootNamespace>
+    <AssemblyName>Fiap.NAC.Correcao</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -107,27 +107,25 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\CartaoReal\Listar.cshtml" />
-    <Content Include="Views\CartaoVirtual\Cadastrar.cshtml" />
-    <Content Include="Views\CartaoVirtual\Listar.cshtml" />
-    <Content Include="Views\Compra\Cadastrar.cshtml" />
+    <Content Include="Views\Bicicleta\Cadastrar.cshtml" />
+    <Content Include="Views\Bicicleta\Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CartaoRealController.cs" />
-    <Compile Include="Controllers\CartaoRealsController.cs" />
-    <Compile Include="Controllers\CartaoVirtualController.cs" />
-    <Compile Include="Controllers\CompraController.cs" />
+    <Compile Include="Controllers\BicicletaController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CartaoReal.cs" />
-    <Compile Include="Models\CartaoVirtual.cs" />
-    <Compile Include="Models\Compra.cs" />
-    <Compile Include="Models\Produto.cs" />
-    <Compile Include="Models\StatusCartao.cs" />
-    <Compile Include="Persistencia\FiapBankContext.cs" />
+    <Compile Include="Models\Bicicleta.cs" />
+    <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Persistencia\FiapBikeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BicicletaRepository.cs" />
+    <Compile Include="Repositories\CategoriaRepository.cs" />
+    <Compile Include="Repositories\IBicicletaRepository.cs" />
+    <Compile Include="Repositories\ICategoriaRepository.cs" />
+    <Compile Include="Units\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -137,14 +135,8 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\CartaoReal\Cadastrar.cshtml" />
+    <Content Include="Views\Categoria\Cadastrar.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Compra\Listar.cshtml" />
-    <Content Include="Views\CartaoReals\Create.cshtml" />
-    <Content Include="Views\CartaoReals\Delete.cshtml" />
-    <Content Include="Views\CartaoReals\Details.cshtml" />
-    <Content Include="Views\CartaoReals\Edit.cshtml" />
-    <Content Include="Views\CartaoReals\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -168,9 +160,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3850</DevelopmentServerPort>
+          <DevelopmentServerPort>3009</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3850/</IISUrl>
+          <IISUrl>http://localhost:3009/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

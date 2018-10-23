@@ -1,0 +1,43 @@
+﻿@model Fiap05.Web.MVC.Models.CartaoReal
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/CartaoReal/Cadastrar.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CartaoReal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cvv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cvv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CartaoRealId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
